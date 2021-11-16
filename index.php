@@ -16,7 +16,15 @@
 	if (!$fotos) {
 		header('Location: index.php');
 	}
-	print_r($fotos);
+	//print_r($fotos);
+	//numero total de filas de la db
+	$statement = $con->prepare("SELECT FOUND_ROWS() AS FROM total_filas");
+	$statement->execute();
+
+	$total_post = $statement->fetch()['total_filas'];
+
+	$total_pagina = ceil($total_post / $foto_por_pagina);
+	
 
 	require('view/index.view.php');
  ?>
