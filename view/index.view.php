@@ -4,8 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximun-scale=1.0, minimum-scale=1.0">
 	<title>Fotografias</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
@@ -16,45 +16,24 @@
 	</header>
 	<section class="fotos">
 		<div class="contenedor">
-			<div class="thumb">
-				<a href="#"><img src="img/1.jpg" alt=""></a>
-			</div>
-			<div class="thumb">
-				<a href="#"><img src="img/2.jpg" alt=""></a>
-			</div>
-			<div class="thumb">
-				<a href="#"><img src="img/3.jpg" alt=""></a>
-			</div>
-			<div class="thumb">
-				<a href="#"><img src="img/4.jpg" alt=""></a>
-			</div>
-			<div class="thumb">
-				<a href="#"><img src="img/5.jpg" alt=""></a>
-			</div>
-			<div class="thumb">
-				<a href="#"><img src="img/6.jpg" alt=""></a>
-			</div>
-			<div class="thumb">
-				<a href="#"><img src="img/7.jpg" alt=""></a>
-			</div>
-			<div class="thumb">
-				<a href="#"><img src="img/8.jpg" alt=""></a>
-			</div>
-			<div class="thumb">
-				<a href="#"><img src="img/9.jpg" alt=""></a>
-			</div>
-			<div class="thumb">
-				<a href="#"><img src="img/10.jpg" alt=""></a>
-			</div>
-			<div class="thumb">
-				<a href="#"><img src="img/11.jpg" alt=""></a>
-			</div>
-			<div class="thumb">
-				<a href="#"><img src="img/12.jpg" alt=""></a>
-			</div>
+
+				<?php foreach ($fotos as $foto): ?>
+					<div class="thumb">
+						<a href="foto.php?id=<?php echo $foto['id']; ?>">
+							<img src="images/<?php echo $foto['imagen_ruta']; ?>" alt="">
+						</a>
+					</div>
+				<?php endforeach ?>
+
 			<div class="paginacion">
-				<a href="#" class="izquierda"><i class="fa fa-long-arrow-left"></i> ANTERIOR</a>
-				<a href="#" class="derecha">SIGUIENTE <i class="fa fa-long-arrow-left"></i></a>
+				<?php if ($pagina_actual > 1): ?>
+					<a href="index.php?p=<?php echo $pagina_actual - 1; ?>" class="izquierda"><i class="fa fa-long-arrow-left""></i> ANTERIOR</a>
+				<?php endif ?>
+
+				<?php if ($total_pagina != $pagina_actual): ?>
+					<a href="index.php?p=<?php echo $pagina_actual + 1; ?>" class="derecha">SIGUIENTE <i class="fa fa-long-arrow-right"></i></a>
+				<?php endif ?>
+
 			</div>
 		</div>
 	</section>

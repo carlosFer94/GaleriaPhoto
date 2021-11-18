@@ -4,20 +4,26 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximun-scale=1.0, minimum-scale=1.0">
 	<title>Fotografias</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel="stylesheet" type="text/css">
+	<link href='https://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
 	<header>
 		<div class="contenedor">
-			<h1 class="titulo">Foto: 1.jpg</h1>
+			<h1 class="titulo"><?php if(!empty($foto['titulo'])){
+									echo $foto['titulo'];
+								}else{
+									echo $foto['imagen_ruta'];
+								}
+							?>
+			</h1>
 		</div>
 	</header>
 	<div class="contenedor">
 		<div class="foto">
-			<img src="img/1.jpg" alt="">
-			<p class="texto">ratione modi totam minima officiis sit distinctio optio nobis omnis nam recusandae consequatur natus porro! Expedita, vel.</p>
+			<img src="images/<?php echo $foto['imagen_ruta']; ?>" alt="">
+			<p class="texto"><?php echo $foto['texto']; ?></p>
 			<a href="index.php" class="regresar"><i class="fa fa-long-arrow-left"></i> Regresar</a>
 		</div>
 	</div>

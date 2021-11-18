@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 	require('funciones.php');
 	$foto_por_pagina = 8;
@@ -23,8 +23,9 @@
 
 	$total_post = $statement->fetch()['total_filas'];
 
-	$total_pagina = ceil($total_post / $foto_por_pagina);
-	
+	$total_pagina = ($total_post / $foto_por_pagina);
+	$total_pagina = ceil($total_pagina);
+
 
 	require('view/index.view.php');
  ?>
